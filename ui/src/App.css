@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  flex: 1;
+  padding: var(--spacing-xl);
+  max-width: 1800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  height: calc(100vh - 140px);
+}
+
+/* Editor Panel */
+.editor-panel {
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.panel-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.panel-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--neutral-900);
+  margin-bottom: var(--spacing-xs);
+}
+
+.subtitle {
+  color: var(--neutral-600);
+  font-size: 0.95rem;
+}
+
+.title-input-wrapper {
+  margin-bottom: var(--spacing-lg);
+}
+
+.title-input {
+  width: 100%;
+  padding: var(--spacing-md);
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: 2px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  background: var(--neutral-50);
+  transition: all 0.2s ease;
+}
+
+.title-input:focus {
+  border-color: var(--primary-blue);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(51, 102, 204, 0.1);
+}
+
+.title-input::placeholder {
+  color: var(--neutral-400);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--neutral-200);
+}
+
+.btn {
+  flex: 1;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--neutral-700);
+  border: 2px solid var(--neutral-300);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--neutral-50);
+  border-color: var(--neutral-400);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn .icon {
+  font-size: 1.2rem;
+}
+
+/* Spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .editor-panel {
+    min-height: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding: var(--spacing-md);
+  }
+
+  .editor-panel {
+    padding: var(--spacing-lg);
+  }
+
+  .panel-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+}
+
+/* Collapsible Panel Styles */
+.content-wrapper {
+  display: flex;
+  gap: var(--spacing-md);
+  height: calc(100vh - 140px);
+  width: 100%;
+}
+
+.editor-panel,
+.feedback-panel-wrapper {
+  transition: width 0.3s ease, flex-grow 0.3s ease;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  /* Anchor for absolute buttons */
+}
+
+/* Default sizes */
+.editor-panel {
+  flex: 1;
+  /* Was 50% ish */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-panel-wrapper {
+  flex: 1;
+  width: 50%;
+  border-radius: var(--radius-lg);
+  /* Match design */
+  overflow: hidden;
+}
+
+/* Expanded/Collapsed States */
+.full-width {
+  flex: 1;
+  width: 100%;
+}
+
+.editor-collapsed .feedback-panel-wrapper {
+  width: calc(100% - 40px);
+}
+
+.feedback-collapsed .editor-panel {
+  width: calc(100% - 40px);
+}
+
+/* Collapsed Bar */
+.collapsed-panel {
+  width: 40px;
+  background: var(--neutral-100);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+  border: 1px solid var(--neutral-200);
+}
+
+.collapsed-panel:hover {
+  background: var(--neutral-200);
+}
+
+/* Centered Arrow in Collapsed State */
+.collapsed-arrow {
+  color: var(--neutral-600);
+  font-size: 1.2rem;
+}
+
+/* Collapse Buttons (Handles) */
+.panel-collapse-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 60px;
+  background: var(--neutral-200);
+  border: 1px solid var(--neutral-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 50;
+  color: var(--neutral-600);
+  font-size: 10px;
+  opacity: 0.6;
+  transition: all 0.2s;
+}
+
+.panel-collapse-btn:hover {
+  opacity: 1;
+  background: var(--neutral-300);
+  width: 24px;
+}
+
+.editor-collapse-btn {
+  right: 0;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+}
+
+.feedback-collapse-btn {
+  left: 0;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-weight: 600;
+  color: var(--neutral-600);
+  white-space: nowrap;
+  letter-spacing: 1px;
+  margin-top: 16px;
+  /* Spacing from arrow if any */
+}
+
+/* Panel Header Row */
+.panel-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-lg);
+}
+
+.panel-toggle-header {
+  height: 0;
+  /* Just a placeholder for the button, absolute maybe? */
+  position: relative;
+}
+
+.panel-toggle-header .icon-btn {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  z-index: 10;
+}
+
+.icon-btn {
+  background: transparent;
+  color: var(--neutral-500);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-top: -4px;
+}
+
+;
+
+.icon-btn:hover {
+  background: var(--neutral-100);
+  color: var(--neutral-900);
+}

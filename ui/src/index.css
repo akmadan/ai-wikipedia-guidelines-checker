@@ -1,0 +1,195 @@
+:root {
+  /* Color Palette - Wikipedia Theme (Vector 2022) */
+  --primary-blue: #3366cc;
+  --primary-blue-dark: #2a4b8d;
+  --primary-blue-light: #eaf3ff;
+  --primary-blue-hover: #2a4b8d;
+
+  --error-red: #d33;
+  --warning-orange: #b35f00;
+  --success-green: #008000;
+  /* Wikipedia green */
+
+  --neutral-50: #f8f9fa;
+  --neutral-100: #eaecf0;
+  --neutral-200: #dcdcdc;
+  /* Wikipedia border */
+  --neutral-300: #c8ccd1;
+  --neutral-400: #a2a9b1;
+  --neutral-500: #72777d;
+  --neutral-600: #54595d;
+  --neutral-700: #202122;
+  /* Wikipedia main text */
+  --neutral-800: #202122;
+  --neutral-900: #000000;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* Radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  /* Wikipedia uses sharper corners mostly */
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  /* Shadows - Removed per request for "Standard" look */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+
+  /* Typography */
+  --font-serif: 'Linux Libertine', 'Georgia', 'Times', serif;
+  --font-sans: 'Linux Libertine', 'Georgia', 'Times', serif;
+  /* User requested everywhere */
+  --font-mono: 'Menlo', 'Consolas', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f8f9fa;
+  /* Wikipedia Vector Layout Background */
+  color: var(--neutral-800);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-400);
+  border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-500);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Utility Classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Button Base Styles */
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Input Base Styles */
+input,
+textarea {
+  font-family: var(--font-sans);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* Link Styles */
+a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-blue-dark);
+}
+
+/* Selection */
+::selection {
+  background: var(--primary-blue-light);
+  color: white;
+}
+
+/* Focus Visible */
+*:focus-visible {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}

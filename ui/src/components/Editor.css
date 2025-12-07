@@ -1,0 +1,183 @@
+.editor-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.editor-toolbar {
+    display: flex;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+    background: var(--neutral-50);
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.toolbar-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: white;
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--neutral-700);
+    transition: all 0.2s ease;
+    min-width: 40px;
+}
+
+.toolbar-btn:hover {
+    background: var(--neutral-100);
+    border-color: var(--neutral-400);
+}
+
+.toolbar-btn.is-active {
+    background: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.editor-container {
+    flex: 1;
+    overflow-y: auto;
+    border: 2px solid var(--neutral-200);
+    border-radius: var(--radius-md);
+    background: white;
+    transition: border-color 0.2s ease;
+}
+
+.editor-container:focus-within {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(51, 102, 204, 0.1);
+}
+
+.prose-editor {
+    padding: var(--spacing-lg);
+    min-height: 400px;
+    outline: none;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--neutral-900);
+}
+
+.prose-editor h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--neutral-900);
+}
+
+.prose-editor h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    color: var(--neutral-800);
+}
+
+.prose-editor p {
+    margin-bottom: var(--spacing-md);
+}
+
+.prose-editor ul,
+.prose-editor ol {
+    margin-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.prose-editor li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.prose-editor strong {
+    font-weight: 600;
+    color: var(--neutral-900);
+}
+
+.prose-editor em {
+    font-style: italic;
+}
+
+/* Placeholder */
+.prose-editor .tiptap p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    float: left;
+    color: var(--neutral-400);
+    pointer-events: none;
+    height: 0;
+    white-space: pre-line;
+}
+
+/* Highlights for feedback */
+.highlight {
+    cursor: pointer;
+    padding: 2px 0;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.highlight-high {
+    background-color: rgba(215, 48, 39, 0.2);
+    border-bottom: 2px solid var(--error-red);
+}
+
+.highlight-medium {
+    background-color: rgba(255, 152, 0, 0.2);
+    border-bottom: 2px solid var(--warning-orange);
+}
+
+.highlight-low {
+    background-color: rgba(255, 235, 59, 0.2);
+    border-bottom: 2px solid #fbc02d;
+}
+
+.highlight-selected {
+    background-color: rgba(51, 102, 204, 0.3) !important;
+    border-bottom-color: var(--primary-blue) !important;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.highlight:hover {
+    opacity: 0.8;
+    transform: scale(1.01);
+}
+
+/* Editor Stats */
+.editor-stats {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--neutral-50);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    color: var(--neutral-600);
+}
+
+.editor-stats span:not(:last-child) {
+    margin-right: var(--spacing-xs);
+}
+
+/* Scrollbar for editor */
+.editor-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.editor-container::-webkit-scrollbar-track {
+    background: var(--neutral-100);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.editor-container::-webkit-scrollbar-thumb {
+    background: var(--neutral-300);
+    border-radius: var(--radius-md);
+}
+
+.editor-container::-webkit-scrollbar-thumb:hover {
+    background: var(--neutral-400);
+}
