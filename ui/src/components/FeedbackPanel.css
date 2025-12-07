@@ -1,15 +1,15 @@
 /* Feedback Panel - GitHub PR Style */
 .feedback-panel {
-    background: var(--neutral-50);
-    border-radius: var(--radius-lg);
+    background: white;
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
-    padding: var(--spacing-lg);
+    border: 1px solid var(--neutral-200);
+    padding: var(--spacing-xl);
     display: flex;
     flex-direction: column;
     height: 100%;
     overflow: hidden;
     font-family: var(--font-sans);
-    border: 1px solid var(--neutral-200);
 }
 
 .panel-header {
@@ -18,13 +18,23 @@
     border-bottom: 1px solid var(--neutral-200);
 }
 
+.panel-header .subtitle {
+    color: var(--neutral-500);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: var(--spacing-xs);
+}
+
 .panel-header h2 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
     display: flex;
     align-items: center;
     gap: 8px;
+    letter-spacing: -0.02em;
+    color: var(--neutral-900);
 }
 
 .pr-meta {
@@ -164,13 +174,13 @@
 }
 
 .review-comment:hover {
-    box-shadow: var(--shadow-md);
-    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--neutral-400);
 }
 
 .review-comment.selected {
     border-color: var(--primary-blue);
-    box-shadow: 0 0 0 2px rgba(51, 102, 204, 0.2);
+    box-shadow: 0 0 0 3px var(--primary-blue-light);
 }
 
 /* Timeline vertical line connector (fake) */
@@ -208,15 +218,21 @@
 }
 
 .bot-avatar {
-    background: white;
+    background: var(--primary-blue-light);
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
-    border: 1px solid var(--neutral-300);
+    border: 1px solid var(--neutral-200);
+    color: var(--primary-blue);
+    flex-shrink: 0;
+}
+
+.bot-avatar svg {
+    width: 14px;
+    height: 14px;
 }
 
 .timestamp {
@@ -235,16 +251,19 @@
 .label-high {
     color: var(--error-red);
     background: var(--error-red-light);
+    border-color: var(--error-red);
 }
 
 .label-medium {
     color: var(--warning-orange);
     background: var(--warning-orange-light);
+    border-color: var(--warning-orange);
 }
 
 .label-low {
     color: var(--primary-blue);
     background: var(--primary-blue-light);
+    border-color: var(--primary-blue);
 }
 
 .comment-body {
@@ -301,30 +320,37 @@
     background: var(--success-green);
     color: white;
     border: 1px solid transparent;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 0.875rem;
     cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: var(--font-sans);
 }
 
 .btn-merge:hover {
-    background: #106c58;
+    background: #15803d;
+    box-shadow: var(--shadow-sm);
 }
 
 .btn-dismiss {
-    background: var(--neutral-100);
+    background: white;
     color: var(--neutral-700);
     border: 1px solid var(--neutral-300);
-    padding: 6px 12px;
-    border-radius: 6px;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: var(--font-sans);
 }
 
 .btn-dismiss:hover {
-    background: var(--neutral-200);
+    background: var(--neutral-50);
+    border-color: var(--neutral-400);
+    color: var(--neutral-900);
 }
 
 /* Empty State */
@@ -334,18 +360,44 @@
     color: var(--neutral-600);
 }
 
+.empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: -0.01em;
+}
+
+.empty-state p {
+    color: var(--neutral-600);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
 .empty-icon {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-md);
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--spacing-md);
+    color: var(--neutral-400);
 }
 
 .guidelines-preview {
     margin-top: var(--spacing-xl);
     text-align: left;
-    background: white;
+    background: var(--neutral-50);
     padding: var(--spacing-lg);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     border: 1px solid var(--neutral-200);
+}
+
+.guidelines-preview h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.01em;
 }
 
 .guidelines-preview ul {
@@ -360,5 +412,11 @@
 
 .check-icon {
     color: var(--success-green);
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 1rem;
+    flex-shrink: 0;
+    width: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }

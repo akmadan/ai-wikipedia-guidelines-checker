@@ -152,7 +152,7 @@ function App() {
 
               <div className="panel-header-row">
                 <div className="panel-header">
-                  <h2>✍️ Write Your Article</h2>
+                  <h2>Write Your Article</h2>
                   <p className="subtitle">
                     Create Wikipedia content with AI-powered guidance
                   </p>
@@ -192,7 +192,9 @@ function App() {
                     </>
                   ) : (
                     <>
-                      <span className="icon">🔍</span>
+                      <svg className="icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.3333 11.3333L14 14M12.6667 7.33333C12.6667 10.2789 10.2789 12.6667 7.33333 12.6667C4.38781 12.6667 2 10.2789 2 7.33333C2 4.38781 4.38781 2 7.33333 2C10.2789 2 12.6667 4.38781 12.6667 7.33333Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
                       Submit for Review
                     </>
                   )}
@@ -203,7 +205,9 @@ function App() {
                   onClick={handleReset}
                   disabled={isReviewing}
                 >
-                  <span className="icon">🔄</span>
+                  <svg className="icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.33333 4.00001V7.33334H4.66667M14.6667 12V8.66667H11.3333M4.66667 1.33334L1.33333 4.00001L4.66667 6.66668M11.3333 14.6667L14.6667 12L11.3333 9.33334M2.66667 9.33334C3.06949 10.4371 3.77121 11.4009 4.68512 12.1034C5.59903 12.8059 6.68726 13.2185 7.81333 13.2933C8.93941 13.3682 10.0572 13.1024 11.0309 12.5281C12.0046 11.9538 12.7923 11.0938 13.3013 10.0527C13.8103 9.01155 14.0203 7.83247 13.9055 6.66734C13.7907 5.50221 13.3562 4.40027 12.6556 3.48868C11.955 2.57709 11.0167 1.89273 9.94667 1.52001M2.66667 6.66668C2.26384 5.56292 1.56212 4.59912 0.648214 3.89661C-0.265691 3.1941 -1.35392 2.78152 -2.48 2.70668C-3.60607 2.63184 -4.72385 2.89764 -5.69756 3.47194C-6.67127 4.04624 -7.45903 4.90624 -7.96803 5.94734C-8.47703 6.98845 -8.68703 8.16753 -8.57221 9.33266C-8.45739 10.4978 -8.02288 11.5997 -7.32228 12.5113C-6.62168 13.4229 -5.68335 14.1073 -4.61333 14.48" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                   Reset
                 </button>
               </div>

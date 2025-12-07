@@ -1,53 +1,56 @@
+/* Import Google Fonts - Must be first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root {
-  /* Color Palette - Wikipedia Theme (Vector 2022) */
-  --primary-blue: #3366cc;
-  --primary-blue-dark: #2a4b8d;
-  --primary-blue-light: #eaf3ff;
-  --primary-blue-hover: #2a4b8d;
+  /* Modern Color Palette */
+  --primary-blue: #2563eb;
+  --primary-blue-dark: #1d4ed8;
+  --primary-blue-light: #eff6ff;
+  --primary-blue-hover: #1d4ed8;
 
-  --error-red: #d33;
-  --warning-orange: #b35f00;
-  --success-green: #008000;
-  /* Wikipedia green */
+  --error-red: #dc2626;
+  --error-red-light: #fee2e2;
+  --warning-orange: #ea580c;
+  --warning-orange-light: #ffedd5;
+  --success-green: #16a34a;
+  --success-green-light: #dcfce7;
 
-  --neutral-50: #f8f9fa;
-  --neutral-100: #eaecf0;
-  --neutral-200: #dcdcdc;
-  /* Wikipedia border */
-  --neutral-300: #c8ccd1;
-  --neutral-400: #a2a9b1;
-  --neutral-500: #72777d;
-  --neutral-600: #54595d;
-  --neutral-700: #202122;
-  /* Wikipedia main text */
-  --neutral-800: #202122;
-  --neutral-900: #000000;
+  --neutral-50: #f9fafb;
+  --neutral-100: #f3f4f6;
+  --neutral-200: #e5e7eb;
+  --neutral-300: #d1d5db;
+  --neutral-400: #9ca3af;
+  --neutral-500: #6b7280;
+  --neutral-600: #4b5563;
+  --neutral-700: #374151;
+  --neutral-800: #1f2937;
+  --neutral-900: #111827;
 
-  /* Spacing */
+  /* Spacing System */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
   --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
 
-  /* Radius */
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  /* Wikipedia uses sharper corners mostly */
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
   --radius-lg: 8px;
   --radius-xl: 12px;
+  --radius-2xl: 16px;
 
-  /* Shadows - Removed per request for "Standard" look */
-  --shadow-sm: none;
-  --shadow-md: none;
-  --shadow-lg: none;
+  /* Shadows - Subtle and professional */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 
-  /* Typography */
-  --font-serif: 'Linux Libertine', 'Georgia', 'Times', serif;
-  --font-sans: 'Linux Libertine', 'Georgia', 'Times', serif;
-  /* User requested everywhere */
-  --font-mono: 'Menlo', 'Consolas', monospace;
+  /* Typography - Professional Font Stack */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
 }
 
 * {
@@ -58,21 +61,18 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: #f8f9fa;
-  /* Wikipedia Vector Layout Background */
-  color: var(--neutral-800);
+  background-color: var(--neutral-50);
+  color: var(--neutral-900);
   line-height: 1.6;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
 }
 
 #root {
   min-height: 100vh;
 }
-
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
@@ -184,7 +184,7 @@ a:hover {
 
 /* Selection */
 ::selection {
-  background: var(--primary-blue-light);
+  background: var(--primary-blue);
   color: white;
 }
 

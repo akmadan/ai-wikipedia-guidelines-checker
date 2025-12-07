@@ -1,11 +1,12 @@
 .header {
     background: white;
     color: var(--neutral-900);
-    padding: var(--spacing-md) var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-xl);
     border-bottom: 1px solid var(--neutral-200);
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: var(--shadow-sm);
 }
 
 .header-content {
@@ -31,22 +32,26 @@
 }
 
 .logo-icon {
-    font-size: 2rem;
-    color: var(--neutral-900);
+    width: 28px;
+    height: 28px;
+    color: var(--primary-blue);
+    flex-shrink: 0;
 }
 
 .logo-text {
     font-size: 1.5rem;
-    font-family: var(--font-serif);
-    font-weight: 500;
-    letter-spacing: -0.5px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--neutral-900);
 }
 
 .tagline {
-    font-size: 0.85rem;
-    color: var(--neutral-600);
+    font-size: 0.875rem;
+    color: var(--neutral-500);
     font-family: var(--font-sans);
     margin-left: 3.5rem;
+    font-weight: 400;
 }
 
 .header-info {
